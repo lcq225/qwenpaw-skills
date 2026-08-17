@@ -8,6 +8,7 @@ QwenPaw 技能发布集（skills collection）。每个技能是一个 `SKILL.md
 
 | 技能 | 版本 | 说明 | 安装 |
 |------|:----:|------|------|
+| [web-extractor](skills/web-extractor/README.md) | 1.0.1 | 网页正文抓取+摘要：URL→干净正文 md/txt，可批量、可 LLM 摘要 | `qwenpaw skills install <release-url>/Web-Extractor-v1.0.1.zip` |
 | [RapidOCR](skills/RapidOCR-Plugin/README.md) | 1.0.1 | 中文优先的本地 OCR：图片/截图/扫描件转文字，离线可用、无 API Key | `qwenpaw skills install <release-url>/RapidOCR-Plugin-v1.0.1.zip` |
 
 ## 安装方式

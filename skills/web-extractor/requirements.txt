@@ -1,0 +1,4 @@
+﻿httpx>=0.24
+readability-lxml>=0.8
+beautifulsoup4>=4.11
+lxml>=4.9
