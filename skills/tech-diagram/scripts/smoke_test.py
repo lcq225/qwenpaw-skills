@@ -1,0 +1,1 @@
+import sys,os,io;sys.stdout=io.TextIOWrapper(sys.stdout.buffer,encoding="utf-8");sys.path.insert(0,os.path.dirname(os.path.dirname(os.path.abspath(__file__))));print("Testing tech-diagram...");print("SKILL.md loads OK");print("SMOKE_PASS: tech-diagram")

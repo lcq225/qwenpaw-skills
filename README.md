@@ -8,6 +8,8 @@ QwenPaw 技能发布集（skills collection）。每个技能是一个 `SKILL.md
 
 | 技能 | 版本 | 说明 | 安装 |
 |------|:----:|------|------|
+| [wechat_publisher](skills/wechat_publisher/SKILL.md) | 1.0.0 | 公众号排版+草稿箱推送：Markdown→微信富排版 HTML（卡片/强调/表格）、12 套主题、图片与封面上传、草稿创建与回读验证 | `qwenpaw skills install <release-url>/WeChat-Publisher-v1.0.0.zip` |
+| [tech-diagram](skills/tech-diagram/SKILL.md) | 1.0.0 | 技术架构图：6 类图型 + 7 套配色 → SVG + PNG + 可在 app.diagrams.net 编辑的 .drawio 活文件 | `qwenpaw skills install <release-url>/Tech-Diagram-v1.0.0.zip` |
 | [data-analysis](skills/data-analysis/README.md) | 1.0.1 | 通用数据分析：文件/数据库/粘贴→诊断+EDA+多维下钻+同环比→Markdown/HTML报告 | `qwenpaw skills install <release-url>/Data-Analysis-v1.0.1.zip` |
 | [web-extractor](skills/web-extractor/README.md) | 1.0.1 | 网页正文抓取+摘要：URL→干净正文 md/txt，可批量、可 LLM 摘要 | `qwenpaw skills install <release-url>/Web-Extractor-v1.0.1.zip` |
 | [RapidOCR](skills/RapidOCR-Plugin/README.md) | 1.0.1 | 中文优先的本地 OCR：图片/截图/扫描件转文字，离线可用、无 API Key | `qwenpaw skills install <release-url>/RapidOCR-Plugin-v1.0.1.zip` |

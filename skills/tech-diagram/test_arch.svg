@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3498db"/>
+    </marker>
+  </defs>
+  <rect width="960" height="600" fill="#ffffff"/>
+
+        <g transform="translate(80, 50)">
+          <rect x="0" y="0" width="800" height="120" 
+                fill="none" stroke="#95a5a6" stroke-dasharray="4" rx="8"/>
+          <text x="10" y="20" font-family="Inter, system-ui" font-size="14" 
+                fill="#95a5a6">Client</text>
+        </g>
+
+            <g transform="translate(120, 90)">
+              <rect x="0" y="0" width="120" height="60" fill="#3498db" rx="8"/>
+              <text x="60" y="35" font-family="Inter, system-ui" font-size="12" 
+                    fill="white" text-anchor="middle">Web</text>
+            </g>
+
+        <g transform="translate(80, 190)">
+          <rect x="0" y="0" width="800" height="120" 
+                fill="none" stroke="#95a5a6" stroke-dasharray="4" rx="8"/>
+          <text x="10" y="20" font-family="Inter, system-ui" font-size="14" 
+                fill="#95a5a6">Services</text>
+        </g>
+
+            <g transform="translate(120, 230)">
+              <rect x="0" y="0" width="120" height="60" fill="#2ecc71" rx="8"/>
+              <text x="60" y="35" font-family="Inter, system-ui" font-size="12" 
+                    fill="white" text-anchor="middle">API</text>
+            </g>
+
+            <g transform="translate(280, 230)">
+              <rect x="0" y="0" width="120" height="60" fill="#2ecc71" rx="8"/>
+              <text x="60" y="35" font-family="Inter, system-ui" font-size="12" 
+                    fill="white" text-anchor="middle">Auth</text>
+            </g>
+
+        <g transform="translate(80, 330)">
+          <rect x="0" y="0" width="800" height="120" 
+                fill="none" stroke="#95a5a6" stroke-dasharray="4" rx="8"/>
+          <text x="10" y="20" font-family="Inter, system-ui" font-size="14" 
+                fill="#95a5a6">Data</text>
+        </g>
+
+            <g transform="translate(120, 370)">
+              <rect x="0" y="0" width="120" height="60" fill="#e67e22" rx="8"/>
+              <text x="60" y="35" font-family="Inter, system-ui" font-size="12" 
+                    fill="white" text-anchor="middle">DB</text>
+            </g>
+</svg>
