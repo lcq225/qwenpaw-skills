@@ -1,0 +1,13 @@
+{
+  "connectors": {
+    "local_docs": {
+      "type": "local_docs",
+      "enabled": true,
+      "read_only": true,
+      "root": "./docs",
+      "extensions": [".md", ".txt"],
+      "max_content_chars": 12000,
+      "search_limit": 20
+    }
+  }
+}
