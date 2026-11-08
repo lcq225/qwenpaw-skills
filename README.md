@@ -13,6 +13,9 @@ QwenPaw 技能发布集（skills collection）。每个技能是一个 `SKILL.md
 | [data-analysis](skills/data-analysis/README.md) | 1.0.1 | 通用数据分析：文件/数据库/粘贴→诊断+EDA+多维下钻+同环比→Markdown/HTML报告 | `qwenpaw skills install <release-url>/Data-Analysis-v1.0.1.zip` |
 | [web-extractor](skills/web-extractor/README.md) | 1.0.1 | 网页正文抓取+摘要：URL→干净正文 md/txt，可批量、可 LLM 摘要 | `qwenpaw skills install <release-url>/Web-Extractor-v1.0.1.zip` |
 | [RapidOCR](skills/RapidOCR-Plugin/README.md) | 1.0.1 | 中文优先的本地 OCR：图片/截图/扫描件转文字，离线可用、无 API Key | `qwenpaw skills install <release-url>/RapidOCR-Plugin-v1.0.1.zip` |
+| [evidence-ledger](skills/evidence-ledger/README.md) | 0.1.0 | 证据台账：把「主张—证据—来源—状态」结构化登记，冲突并置不选边，导出可追溯附表 | `qwenpaw skills install <release-url>/Evidence-Ledger-v0.1.0.zip` |
+| [skill-publish-auditor](skills/skill-publish-auditor/README.md) | 0.1.0 | 技能公开发布前审计：来源/许可/隐私/frontmatter/依赖/zip 扁平结构，阻断冒充原创 | `qwenpaw skills install <release-url>/Skill-Publish-Auditor-v0.1.0.zip` |
+| [connector-kit](skills/connector-kit/README.md) | 0.1.0 | 统一只读连接器底座：list/search/fetch 三接口，内置本地文档库适配器，凭据只走环境变量 | `qwenpaw skills install <release-url>/Connector-Kit-v0.1.0.zip` |
 
 ## 安装方式
 
