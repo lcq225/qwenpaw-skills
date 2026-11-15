@@ -245,5 +245,73 @@ def screenshot() -> Dict[str, Any]:
     return skill.recognize_screenshot()
 
 
+def parse(input_path: str, force: Optional[str] = None) -> Dict[str, Any]:
+    """
+    统一入口：根据输入类型自动选择最优引擎。
+
+    - 图片/截图 → RapidOCR（纯文字，快，中文专优）
+    - PDF/Office 文档 → RapidDoc（版面+表格+文字，输出 Markdown/HTML 表格）
+
+    Args:
+        input_path: 图片或文档路径
+        force: 手动指定引擎，'ocr' 或 'doc'（默认 None=自动路由）
+
+    Returns:
+        {success, full_text, source, ...}
+        - source='rapidocr' 时含 texts/confidence/bbox
+        - source='rapiddoc' 时含 markdown/has_table
+    """
+    p = Path(input_path)
+    if not p.exists():
+        return {"success": False, "error": f"文件不存在: {input_path}", "source": "auto"}
+
+    suffix = p.suffix.lower().lstrip(".")
+
+    if force == "ocr":
+        return recognize(str(p))
+    if force == "doc":
+        return parse_doc(str(p))
+
+    DOC_SUFFIXES = {"pdf", "docx", "doc", "xlsx", "xls", "pptx", "ppt"}  # 非这些后缀一律走 OCR（图片及其他兜底）
+
+    if suffix in DOC_SUFFIXES:
+        return parse_doc(str(p))
+    # 图片及其他 → OCR
+    r = recognize(str(p))
+    r["source"] = "rapidocr"  # 统一标记引擎（无论成败，覆盖原 source=file/base64/screenshot）
+    return r
+
+
+def parse_doc(input_path: str) -> Dict[str, Any]:
+    """
+    文档解析：用 RapidDoc 提取版面结构 + 表格 + 文字，输出 Markdown（表格转 HTML）。
+
+    懒加载 rapid-doc；未安装时返回明确错误提示（不阻塞纯文字 OCR）。
+    """
+    try:
+        from rapid_doc import RapidDoc
+    except ImportError:
+        return {
+            "success": False,
+            "error": 'rapid-doc 未安装。文档解析需: pip install "rapid-doc[cpu]"',
+            "source": "rapiddoc",
+        }
+
+    try:
+        # 禁用公式：化工场景无公式需求，且公式模型 560MB 下载不可靠（2026-11-15 实测）
+        parser = RapidDoc(formula_enable=False)
+        result = parser(str(input_path))
+        markdown = result.markdown or ""
+        return {
+            "success": True,
+            "full_text": markdown,
+            "markdown": markdown,
+            "has_table": "<table" in markdown,
+            "source": "rapiddoc",
+        }
+    except Exception as e:
+        return {"success": False, "error": f"RapidDoc 解析失败: {e}", "source": "rapiddoc"}
+
+
 # 导出
-__all__ = ['RapidOCRSkill', 'recognize', 'extract_text', 'screenshot']
+__all__ = ['RapidOCRSkill', 'recognize', 'extract_text', 'screenshot', 'parse', 'parse_doc']

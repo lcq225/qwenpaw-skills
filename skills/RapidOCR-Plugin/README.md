@@ -2,8 +2,8 @@
 
 > **中文图片文字识别** · 基于 RapidOCR (ONNX Runtime) · 离线可用 · 无 API Key
 
-一个开箱即用的 OCR 插件：识别图片/截图/扫描件中的文字，输出纯文本。
-中文优先，轻量（≈15MB），比传统引擎快 3–5 倍，首次使用自动安装依赖。
+一个开箱即用的 OCR 插件：识别图片/截图/扫描件中的文字，或解析 PDF/Office 文档为结构化 Markdown（表格转HTML）。
+按输入类型自动路由：图片→RapidOCR（纯文字），PDF/Office→RapidDoc（版面+表格）。中文优先，轻量，首次使用自动安装依赖。
 
 ---
 
@@ -16,7 +16,7 @@ RapidOCR-Plugin/
 ├── requirements.txt
 ├── README.md
 └── RapidOCR/      # Python 包（核心模块）
-    └── __init__.py  # API：recognize() / extract_text() / screenshot()
+    └── __init__.py  # API：parse() / recognize() / extract_text() / screenshot()
 ```
 
 ## 快速开始
@@ -33,9 +33,10 @@ python recognize.py --screenshot          # 截全屏识别
 
 ```python
 import sys; sys.path.insert(0, "RapidOCR-Plugin")
-from RapidOCR import recognize, extract_text
+from RapidOCR import parse, recognize, extract_text
 
-r = recognize("照片.png")
+r = parse("文档.pdf")   # 自动路由：PDF→RapidDoc（表格转HTML）
+r = recognize("照片.png")  # 图片→RapidOCR（纯文字）
 print(r["full_text"])      # 全部文字
 text = extract_text("照片.png")  # 纯文本
 ```
@@ -80,5 +81,5 @@ pip install -r requirements.txt
 
 ---
 
-**版本**: 1.0.1
+**版本**: 1.1.0
 **协议**: 随 QwenPaw 技能生态（Apache-2.0）
